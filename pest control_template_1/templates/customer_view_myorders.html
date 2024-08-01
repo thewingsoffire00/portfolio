@@ -1,0 +1,89 @@
+{% include 'customer_header.html' %}
+<!-- slider section -->
+  <section class="slider_section">
+      <div class="slider_container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1 align='center'>
+ My Orders                      </h1>
+         
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+          
+        </div>
+      </div>
+    </section>
+<div class="top" style="height: 100px;"></div>
+<h3></h3>
+    <div>
+{% if data['view_product'] %}
+ <center>
+    <div>
+        <table class="table" style="width: 900px; color: aliceblue;background: rgba(44, 43, 43, 0.604);" >
+            <tr>
+                <th>#</th>
+            </tr>
+            {% for i in data['view_product'] %}
+            <tr>    
+                <td><img src="/{{i['product_img']}}" width="170px" height="190px" alt=""></td>
+                <th>Product Name:</th>
+                <td>{{i['product_name']}}</td>
+                <th>Purchased Quantity:</th>
+                <td>{{i['dd']}}</td>
+                <th>Total Amount:</th>
+                <td>{{i['total_price']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+     </center>
+{% else %}
+    <div>
+      <center>
+        <table class="table" style="width: 900px; color: aliceblue;background: rgba(44, 43, 43, 0.604);" >
+            <tr>
+                <th>#</th>
+            </tr>
+            {% for i in data['myorders'] %}
+            <tr>    
+                <!-- <td><img src="/{{i['product_img']}}" width="170px" height="190px" alt=""></td> -->
+<!--                 <th>Product Name:</th>
+                <td>{{i['product_name']}}</td>
+                <th>Purchased Quantity:</th>
+                <td>{{i['qty']}}</td> -->
+                <th>Total Amount:</th>
+                <td>{{i['total_amount']}}</td>
+                <th>Purchased Date:</th>
+                <td>{{i['date']}}</td>
+                <th>Status:</th>
+                <td>{{i['ostatus']}}</td>
+                <th>Product Details:</th>
+                <td><a class="btn btn-success" href="?action=view_product&omid={{i['order_master_id']}}">DETAILS</a></td>
+                <th>Bill:</th>
+                <td><a class="btn btn-success" href="bill?omid={{i['order_master_id']}}&tt={{i['total_amount']}}">BILL</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+        </center>
+    </div>
+{% endif %}
+    </div>
+    
+
+{% include 'footer.html' %}

@@ -1,0 +1,95 @@
+{% include 'admin_header.html' %}
+
+<center>
+   <!-- slider section -->
+  <section class="slider_section">
+      <div class="slider_container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1 align='center'>
+                      Complaint
+                      </h1>
+         
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- end slider section -->
+    {% if data['replysec'] %}
+
+        <br><br>
+        <h4 class="text-white">Reply Box</h4>
+        <form action="" method="post" style="background: rgba(0, 0, 0, .5); width: 400px; padding: 20px; border-radius: 10px;">
+            <table>
+                <tr>
+                    <th style="color: white;">Reply : </th>
+                    <td><input type="text" class="form-control" name="reply" id=""></td>
+                </tr>
+                <tr>
+                    <td align="center" colspan="2">
+                    <input class="btn btn-success" style="margin-top: 10px;" type="submit" name="submit" id="">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        </div>
+    {% else %}
+        <h4 class="text-white">Recent Complaints</h4>
+
+        <div >
+            <div style="background: rgba(0, 0, 0, .5); width: 1000px; border-radius: 10px; padding: 20px;">
+                <table class="table table-striped" style="color: white; width: 100%;">
+                    <tr>
+                        <th>index</th>
+                        <th>Name</th>
+                        <th>Place</th>
+                        <th>Phone</th>
+                       
+                        <th>Complaint</th>
+                        <th>Date</th>
+                        <th>Reply</th>
+                    </tr>
+                    {% for row in data['res'] %}
+                    <tr>
+                        <td>{{ loop.index }}</td>
+                        <td>{{ row['c_fname'] }}{{ row['c_lname'] }}</td>
+                        <td>{{ row['c_district'] }}</td>
+                        <td>{{ row['c_phone'] }}</td>
+                        
+                        <td>{{ row['complaint'] }}</td>
+                        <td>{{ row['complaint_date'] }}</td>
+                        {% if row['reply'] == 'pending' %}
+                        <td><a class="btn btn-success" href="?action=reply&cid={{ row['complaint_id'] }}">Reply Now</a>
+                        </td>
+                        {% else %}
+                        <td>{{ row['reply'] }}</td>
+                        {% endif %}
+                    </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+    {% endif %}
+</center>
+
+
+{% include 'footer.html' %}

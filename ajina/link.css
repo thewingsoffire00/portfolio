@@ -1,0 +1,27 @@
+a
+{
+    text-decoration: none;
+    color: aquamarine;
+    font-size: 30px;
+    background-color: blueviolet;
+    cursor: default;
+}
+a:hover
+{
+    background-color: brown;
+    color: chartreuse;
+}
+li
+{
+    display:inline;
+    padding: 10px;
+
+}
+ul{
+    background-color: coral;
+}
+img
+{
+    display: block;
+    float: right;
+}

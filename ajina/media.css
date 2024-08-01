@@ -1,0 +1,78 @@
+/* .section
+{
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 2px;
+} */
+/* @media screen
+{
+    .section
+    {
+       font-size:20px;
+       color:rgb(154, 14, 14); 
+    }
+}
+@media print
+
+{
+    .section
+    {
+       font-size:20px;
+       color:rgb(36, 211, 211); 
+    }
+} */
+/* @media all
+
+{
+    .section
+    {
+       font-size:20px;
+       color:rgb(36, 211, 211); 
+    }
+} */
+/* @media only screen and (max-width:1024px) and (min-width:768px)
+{
+    .section
+    {
+        background-color: blueviolet;
+        width: 80px;
+        margin: 0 auto;
+        font-size: 50px;
+    }
+} */
+/* @media only screen and (width >= 768px) and (width <= 1025px)
+{
+    .section
+    {
+        background-color: rgb(31, 10, 102);
+        width: 80px;
+        margin: 0 auto;
+        
+    }
+} */
+/* @media only screen and  (300px <= width <= 668px)
+{
+    .section
+    {
+        background-color: blueviolet;
+        width: 80px;
+        margin: 0 auto;
+        
+    }
+} */
+/* div{
+    height: 500px;
+    width: 400px;
+    background-image: linear-gradient(red,blue,green);
+} */
+/* div{
+    height: 500px;
+    width: 400px;
+ background-image: radial-gradient(rgb(179, 99, 99),rgb(158, 158, 190),yellow);
+} */
+div{
+    height: 500px;
+    width: 400px;
+background-image: repeating-linear-gradient(rgb(226, 220, 185),rgb(94, 9, 94),rgb(177, 82, 98) 50px);
+font-size: 0.;
+}

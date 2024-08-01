@@ -1,0 +1,15 @@
+.container
+{
+    background-color: rgb(112, 102, 13);
+    display: flex;
+    flex-wrap: wrap-reverse;
+    justify-content: center;
+    
+}
+.item
+{
+    background-color: darkgreen;
+    border: 2px solid black;
+    padding: 20px;
+    font-size: 50px;
+}

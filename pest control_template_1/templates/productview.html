@@ -1,0 +1,178 @@
+
+{% include 'customer_header.html' %}
+<!-- slider section -->
+  <section class="slider_section">
+      <div class="slider_container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1 align='center'>
+Product                     </h1>
+         
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+          
+        </div>
+      </div>
+    </section>
+<div style="margin-top: 200px;"></div>
+<form action="" method="post">
+
+    <div class="product-page">
+        <div class="product-img">
+            <img src="/{{data['res'][0]['product_img']}}" alt="Product Image">
+        </div>
+        <div class="product-details">
+          <h1 class="product-name" style="color: black;">Product Name :{{data['res'][0]['product_name']}}</h1>
+          <p class="product-description" style="color: black;">Product Description :{{data['res'][0]['product_desc']}}</p>
+          <p class="product-price" style="color: black;">Price:₹{{data['res'][0]['selling_price']}}</p>
+          <div class="product-options">
+            <input type="hidden" name="proid" value="{{data['res'][0]['product_id']}}">
+        <input type="hidden" name="price" value="{{data['res'][0]['selling_price']}}">
+            <!-- <label for="product-size">Size:</label> -->
+            <!-- <select name="product-size" id="product-size">
+              <option value="S">S</option>
+              <option value="M">M</option>
+              <option value="L">L</option>
+            </select> -->
+            <!-- <label for="product-color">Color:</label> -->
+            <!-- <select name="product-color" id="product-color">
+              <option value="Red">Red</option>
+              <option value="Blue">Blue</option>
+              <option value="Green">Green</option>
+            </select> -->
+        </div>
+        {% if data['viewcart'] %}
+        <input class="btn btn-success" type="submit" name="viewcart" value="ViewCart">
+        <!-- <button type="button" name="viewcart">ViewCart</button> -->
+        {% else %}
+        <!-- <button type="button" name="addcart">AddToCart</button> -->
+        <input class="btn btn-warning" type="submit" name="addcart" value="AddCart">
+        {% endif %}
+    </div>
+</div>
+</form>
+
+</body>
+</html>
+
+  <style>
+    .product-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 50px;
+  background-color: rgba(255,255,255,.5);
+  padding: 2rem;
+}
+
+.product-img {
+  width: 40%;
+  margin-right: 50px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.product-img img {
+  width: 100%;
+  height: auto;
+}
+
+.product-details {
+  width: 50%;
+  animation: slideInRight 1s ease-in-out;
+}
+
+.product-name {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.product-description {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.product-price {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.product-options {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.product-options label {
+  margin-right: 10px;
+}
+
+.add-to-cart {
+  background-color: #1abc9c;
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  cursor: pointer;
+  animation: zoomIn 1s ease-in-out;
+}
+
+.add-to-cart:hover {
+  background-color: #16a085;
+}
+
+/* Animations */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+  </style>
+
+  {% include 'footer.html' %}

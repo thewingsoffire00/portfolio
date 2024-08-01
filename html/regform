@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+</head>
+<body>
+<form method="post">
+	<tr>
+		<th> first name<th>
+			<td><input type="text" name="fname"></td>
+			</tr>
+
+			<tr>
+	    	<th> last name<th>
+			<td><input type="text" name="lname"></td>
+			</tr>
+
+			<tr>
+		  <th> place<th>
+			<td><input type="text" name="place"></td>
+			</tr>
+
+			<tr>
+		   <th> phone<th>
+			<td><input type="number" name="phone"></td>
+			</tr>
+					
+			<tr>
+		<th> gender<th>
+			<td><input type="text" name="gender"></td>
+			</tr>
+			<tr>
+		   <th>email id<th>
+			<td><input type="text" name="email"></td>
+			</tr>
+			<tr>
+		   <th> user name<th>
+			<td><input type="text" name="uname"></td>
+			</tr>
+				<tr>
+		<th> password<th>
+			<td><input type="password" name="pwd"></td>
+			</tr>
+				<tr>
+					<td align="center" colspan="8"><input type="submit" name="submit"></td>
+				</tr>
+
+</form>
+</body>
+</html>

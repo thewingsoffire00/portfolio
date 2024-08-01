@@ -1,0 +1,216 @@
+{% include 'admin_header.html' %}
+
+
+<center>
+<!-- slider section -->
+  <section class="slider_section">
+      <div class="slider_container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1 align='center'>
+                      Manage Staff
+                      </h1>
+         
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- end slider section -->
+    <form action="" method="post" >
+{% if data['staff'] %}
+{% else %}
+
+
+
+        <div style="width: 400px;padding-top: 20px;">
+                <div >
+                    <input type="text"  class="form-control"  pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required placeholder="Email" name="email" id="" value="{% if data['staff'] %}{{data['staff'][0]['email']}}{% endif %}">
+                </div>
+                <div>
+                    <input type="password" class="form-control" style="margin-top: 20px;" required placeholder="Password" name="password" id=""   >
+                </div>
+        </div>
+        {% endif %}
+        {% if data['staff'] %}
+        <div style="width: 400px; padding-top: 20px;" >
+        {% else %}
+        <div style="width: 400px;" >
+            {% endif %}
+                <div>
+                    <input type="text" class="form-control" style="margin-top: 20px;" required placeholder="Firstname" name="fname" id=""  value="{% if data['staff'] %}{{data['staff'][0]['staff_fname']}}{% endif %}">
+                </div>
+                <div>
+                    <input type="text" class="form-control" style="margin-top: 20px;" required placeholder="Lastname" name="lname" id=""  value="{% if data['staff'] %}{{data['staff'][0]['staff_lname']}}{% endif %}" >
+                </div>
+        </div>
+        <div style="width: 400px;">
+                <div>
+                    <input type="text" class="form-control" style="margin-top: 20px;" required placeholder="House Name" name="house" id=""  value="{% if data['staff'] %}{{data['staff'][0]['staff_housename']}}{% endif %}">
+                </div>
+                <div>
+                    <input type="text" class="form-control" style="margin-top: 20px;" required placeholder="Street" name="street" id=""  value="{% if data['staff'] %}{{data['staff'][0]['staff_street']}}{% endif %}">
+                </div>
+        </div>
+        <div style="width: 400px;">
+                
+                <div>
+                    <input type="text" class="form-control" style="margin-top: 20px;" required placeholder="District" name="district" id=""  value="{% if data['staff'] %}{{data['staff'][0]['staff_district']}}{% endif %}">
+                </div>
+                    <div>
+                        <input type="text"class="form-control" style="margin-top: 20px;" class="form-control" required placeholder="State" name="state" id=""  value="{% if data['staff'] %}{{data['staff'][0]['staff_state']}}{% endif %}">
+                    </div>
+        </div>
+
+        <div style="width: 400px;">
+                <div>
+                    <input type="text" class="form-control" style="margin-top: 20px;" maxlength="6" required placeholder="Pincode" name="pin" id=""  value="{% if data['staff'] %}{{data['staff'][0]['staff_pincode']}}{% endif %}">
+                </div>
+                <div>
+                    <input type="text" maxlength="10" style="margin-top: 20px;" class="form-control" required placeholder="phone" name="phone" id=""  value="{% if data['staff'] %}{{data['staff'][0]['staff_phone']}}{% endif %}">
+                </div>
+                  <div>
+                   <input type="text" style="margin-top: 20px;" class="form-control" required placeholder="Salary" name="salary" id=""  value="{% if data['staff'] %}{{data['staff'][0]['staff_salary']}}{% endif %}">
+
+                </div>
+         </div>
+      <!--   
+         <div style="width: 400px;">
+                <div class="text-white">
+                    <input type="radio"  value="male" name="gender" id="">Male<input value="female" type="radio"  name="gender" id="">Female
+                </div>
+                <div style="display: flex;">
+                    <label for="" style="margin-top: 14px;color: aliceblue;">Date of Birth: </label>
+                    <input type="date"  style="width: 310px;height: 50px;" class="form-control" required placeholder="Date of Birth" name="dob" id=""  value="{% if data['staff'] %}{{data['staff'][0]['staff_dob']}}{% endif %}">
+                </div>
+         </div> -->
+         <div style="margin-top: 10px;margin-bottom: 10px;">
+            <input type="submit" class="btn btn-success"  {% if data['staff'] %} name="update" value="Update Details" {% else %} value="submit" name="submit" {% endif %} >
+         </div>
+        </div>
+
+    </form>
+
+    <h5>View Available Staffs</h5>
+    <table class="table table-striped">
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>House Name</th>
+            <th>Street</th>
+            <!-- <th>City</th> -->
+            <th>District</th>
+            <th>State</th>
+            <th>Email</th>
+            <th>Pincode</th>
+            <th>Phone</th>
+            <th>Salary</th>
+      <!--       <th>Gender</th>
+            <th>Dob</th> -->
+            <!-- <th>Staff Join</th> -->
+            <th>Staff Status</th>
+        </tr>
+        {% for row in data['res'] %}
+        <tr>
+            <td>{{loop.index}}</td>
+            <td>{{ row['staff_fname'] }}{{ row['staff_lname'] }}</td>
+            <td>{{ row['staff_housename'] }}</td>
+            <td>{{ row['staff_street'] }}</td>
+            <!-- <td>{{ row['staff_city'] }}</td> -->
+            <td>{{ row['staff_district'] }}</td>
+            <td>{{ row['staff_state'] }}</td>
+
+            <td>{{ row['staff_email'] }}</td>
+            <td>{{ row['staff_pincode'] }}</td>
+            <td>{{ row['staff_phone'] }}</td>
+            <th>{{row['staff_salary']}}</th>
+          <!--   <td>{{ row['staff_gender'] }}</td>
+            <td>{{ row['staff_dob'] }}</td> -->
+            <!-- <td>{{ row['staff_join'] }}</td> -->
+            <td>{{ row['staff_status'] }}</td>
+            <td><a href="?action=update&stid={{ row['staff_id'] }}&uname={{ row['username'] }}" class="btn btn-warning btn-sm">Update</a></td>
+            <td><a onclick="return confirm('Are You Sure!')" href="?action=active&stid={{ row['staff_id'] }}&uname={{ row['username'] }}" class="btn btn-success btn-sm">Active</a></td>
+            <td><a onclick="return confirm('Are You Sure!')" href="?action=inactive&stid={{ row['staff_id'] }}&uname={{ row['username'] }}" class="btn btn-danger btn-sm">Inactive</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+<script src="
+https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+<script>
+    $(function() {
+        $("input[name='fname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        $("input[name='lname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        // $("input[name='dob']").on('input', function(e) {
+        //     $(this).val($(this).val().replace(/[^0-9/]/g, ''));
+
+        // });
+        
+        $("input[name='phone']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9]/g, ''));
+               if(!re) {
+                    $('#eerror').show();
+                } else {
+                    $('#eerror').hide();
+                }
+            
+        });
+        $("input[name='pin']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9]/g, ''));
+           
+            
+        });
+         $("input[name='email']").on('input', function(e) {
+              var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{1,}/.test(this.value);
+                if(!re) {
+                    $('#eerror').show();
+                } else {
+                    $('#eerror').hide();
+                }
+
+        });
+        $("input[name='address']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z0-9()/. ]/g, ''));
+
+        });
+        $("input[name='place']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+            
+        $("input[name='pwd']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9A-Za-z@/. ]/g, ''));
+            
+        });
+    });
+
+
+</script>
+
+{% include 'footer.html' %}

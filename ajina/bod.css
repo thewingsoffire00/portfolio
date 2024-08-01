@@ -1,0 +1,6 @@
+h1{
+    border-style: dashed solid dotted double ;
+    border-width: 5px 3px 10px 8px;
+    border-color: aqua red blueviolet yellowgreen;
+    border-radius:10px  20px 13px;
+}

@@ -1,0 +1,18 @@
+dl
+{
+margin-leftt: 100px;
+}
+
+div
+{
+border-style: 300px solid rgb(23, 100, 159);
+border: 200px;
+width:800px;
+height: 50px;
+background-color: blue;
+display:flex;
+}
+body
+{
+font-size: 20px;
+}

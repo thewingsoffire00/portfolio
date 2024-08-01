@@ -1,0 +1,194 @@
+{% include 'staff_header.html' %}
+
+
+
+<center>
+<!-- slider section -->
+  <section class="slider_section">
+      <div class="slider_container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1 align='center'>
+                      Manage Vendor
+                      </h1>
+         
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- end slider section -->
+
+  
+
+    <form action="" method="post">
+
+        <div style="padding-top: 20px;width: 400px;">
+                <div>
+                    <input type="text" class="form-control" required placeholder="Vendor Namme" name="vname" id=""  value="{% if data['vendor'] %}{{data['vendor'][0]['v_name']}}{% endif %}">
+                </div>
+                <div>
+                    <input type="email" class="form-control" required placeholder="Email" name="email" id=""  value="{% if data['vendor'] %}{{data['vendor'][0]['v_email']}}{% endif %}" >
+                </div>
+        </div>
+        <div style="width: 400px;">
+                <div>
+                    <input type="text" class="form-control" required placeholder="Street" name="street" id=""  value="{% if data['vendor'] %}{{data['vendor'][0]['v_street']}}{% endif %}">
+                </div>
+                <div>
+                    <input type="text" class="form-control" required placeholder="City" name="city" id=""  value="{% if data['vendor'] %}{{data['vendor'][0]['v_district']}}{% endif %}">
+                </div>
+        </div>
+         <div style="width: 400px;">
+            <div>
+                <input type="text" class="form-control mt-3" required placeholder="State" name="state" id=""  value="{% if data['vendor'] %}{{data['vendor'][0]['v_state']}}{% endif %}">
+            </div>
+            <div>
+                <input type="text" class="form-control mt-3" required placeholder="Building Name" name="bname" id=""  value="{% if data['vendor'] %}{{data['vendor'][0]['v_building_name']}}{% endif %}">
+            </div>
+    </div>
+        <div style="width: 400px;">
+            <div>
+                <input type="text" class="form-control" maxlength="6" required placeholder="Pincode" name="pin" id=""  value="{% if data['vendor'] %}{{data['vendor'][0]['v_pincode']}}{% endif %}">
+            </div>
+            <div>
+                <input type="text" class="form-control" maxlength="10" required placeholder="phone" name="phone" id=""  value="{% if data['vendor'] %}{{data['vendor'][0]['v_phone']}}{% endif %}">
+            </div>
+                    <!-- <div>
+                        <input type="text" required placeholder="State" name="state" id="">
+                    </div> -->
+        </div>
+
+        <!-- <div>
+                <div>
+                    <input type="text" maxlength="6" required placeholder="Pincode" name="pin" id=""  value="{% if data['vendor'] %}{{data['vendor'][0]['staff_pincode']}}{% endif %}">
+                </div>
+                <div>
+                    <input type="text" maxlength="10" required placeholder="phone" name="phone" id=""  value="{% if data['vendor'] %}{{data['vendor'][0]['staff_phone']}}{% endif %}">
+                </div>
+         </div>
+        
+         <div>
+                <div>
+                    <input type="radio"  value="male" name="gender" id="">Male<input value="female" type="radio"  name="gender" id="">Female
+                </div>
+                <div>
+                    <label for="">Date of Birth: </label>
+                    <input type="date" required placeholder="Date of Birth" name="dob" id=""  value="{% if data['vendor'] %}{{data['vendor'][0]['staff_dob']}}{% endif %}">
+                </div> -->
+      
+         <div style="width: 400px;">
+            <input type="submit" class="btn btn-success" {% if data['vendor'] %} name="update" value="Update Details" {% else %} value="submit" name="submit" {% endif %} >
+         </div>
+
+    </form>
+
+ 
+
+
+    <h5>View Available Vendors</h5>
+    <table class="table table-striped">
+        <tr>
+            <th>Vendor Name</th>
+            <th>Street</th>
+            <th>City</th>
+            <th>Email</th>
+            <th>Pincode</th>
+            <th>Phone</th>
+          
+            <!-- <th>Staff Join</th> -->
+            <th>Vendor Status</th>
+        </tr>
+        {% for row in data['res'] %}
+        <tr>
+           
+            <td>{{ row['v_name'] }}</td>
+            <td>{{ row['v_street'] }}</td>
+            <td>{{ row['v_district'] }}</td>
+            
+            <td>{{ row['v_email'] }}</td>
+            <td>{{ row['v_pincode'] }}</td>
+            <td>{{ row['v_phone'] }}</td>
+            
+            <!-- <td>{{ row['staff_join'] }}</td> -->
+            <td>{{ row['status'] }}</td>
+            <td><a href="?action=update&vid={{ row['vendor_id'] }}" class="btn btn-warning btn-sm">Update</a></td>
+            <td><a onclick="return confirm('Are You Sure!')" href="?action=active&vid={{ row['vendor_id'] }}" class="btn btn-success btn-sm">Active</a></td>
+            <td><a onclick="return confirm('Are You Sure!')" href="?action=inactive&vid={{ row['vendor_id'] }}" class="btn btn-danger btn-sm">Inactive</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+<script src="
+https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+<script>
+    $(function() {
+        $("input[name='fname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        $("input[name='lname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        // $("input[name='dob']").on('input', function(e) {
+        //     $(this).val($(this).val().replace(/[^0-9/]/g, ''));
+
+        // });
+        
+        $("input[name='phone']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+        $("input[name='pin']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+        $("input[name='email']").on('input', function(e) {
+              var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{1,}/.test(this.value);
+                if(!re) {
+                    $('#eerror').show();
+                } else {
+                    $('#eerror').hide();
+                }
+
+        });
+        $("input[name='address']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z0-9()/. ]/g, ''));
+
+        });
+        $("input[name='place']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+            
+        $("input[name='pwd']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9A-Za-z@/. ]/g, ''));
+            
+        });
+    });
+
+
+</script>
+
+{% include 'footer.html' %}

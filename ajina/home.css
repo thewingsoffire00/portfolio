@@ -1,0 +1,68 @@
+body
+{
+    background-color: white;
+  
+    color: rgb(9, 9, 78);
+   
+    height:700px;
+    font-weight:bolder;
+    font-style:stroke;
+    
+    
+}
+
+ul{
+    display: flex;
+    list-style: none;
+    margin-left: 500px;
+    
+  
+}
+li{
+    
+    margin-left: 20px;
+    position: relative;
+
+}
+li:hover
+{
+
+background-color: rgb(228, 232, 236);
+
+
+}
+.div
+{
+    border-style: 500px solid rgb(39, 119, 193);
+    border: 300px;
+    width: 500px ;
+    height: 1000px;
+    background-color: rgb(110, 179, 229);
+    display: flex;
+    margin-left:900px ;
+    margin-top:-300px;
+    background-image: url(./src/32190.jpg);
+    background-repeat: no-repeat;
+    background-position: -50px 150px;
+  
+    
+}
+.h2
+{
+    margin-left: 150px;
+  margin-top: 90px;
+      
+}
+h2{
+    font-weight: lighter;
+ 
+    
+}
+.ht
+{
+    margin-left: 40px;
+}
+h1
+{
+    margin-left:20px ;
+}

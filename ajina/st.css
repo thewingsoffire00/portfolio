@@ -1,0 +1,81 @@
+body{
+    background-image: url(./src/car.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+  
+}
+form
+{
+    width: 400px;
+    height: 400px;
+    background-color: white;
+    border:solid  #f6f5f5 1px;
+    margin: 250px  500px 100px 250px;
+    padding: 10px  10px  60px 500px;
+    background-image: url(./src/car.jpg);  
+    background-repeat: no-repeat;
+    background-size: 500px;
+    text-align: center;
+    background-position-x: left;
+
+  
+
+}
+h1{
+    position: relative;
+}
+h1::before
+{
+
+content: "";
+position: absolute;
+bottom: 0px;
+left:170px;
+right: 0px;
+width: 50px;
+height:5px ;
+background-color:rgb(14, 161, 14) ;
+border-radius: 3px;
+
+
+  
+}
+.f1
+{
+
+width: 300px;
+height: 30px;
+background-color:rgb(246, 242, 241) ;
+color: rgb(146, 143, 143);
+font-style: oblique;
+border-collapse: collapse;
+border-style: hidden;
+padding-left: 14px;
+font-size: medium;
+}
+.f2
+{
+width: 300px;
+height: 125px;
+background-color:rgb(246, 242, 241) ;
+color: rgb(146, 143, 143);
+font-style: oblique;
+border-collapse: collapse;
+border-style: hidden;
+padding-left: 14px;
+padding-top: 10px;
+font-size: large;
+}
+.button
+{
+width: 300px;
+height: 30px;
+background-color:rgb(27, 177, 72) ;
+color: rgb(247, 242, 242);
+font-style: oblique;
+border-collapse: collapse;
+border-style: hidden;
+padding-left: 14px;
+font-size: medium;
+}

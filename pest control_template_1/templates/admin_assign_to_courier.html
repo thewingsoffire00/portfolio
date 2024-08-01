@@ -1,0 +1,66 @@
+{% include 'admin_header.html' %}
+
+<center>
+   <!-- slider section -->
+  <section class="slider_section">
+      <div class="slider_container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1 align='center'>
+                      Assign To Courier
+                      </h1>
+         
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+
+    <h3 class="text-white">ASSIGN</h3>
+
+
+    <div style="background: rgba(0, 0, 0,.5);width: 400px;border-radius: 10px;">
+
+       <form method="post">
+         <table class="table">
+           <tr>
+             <td>
+               <select name="cor" class="form-control" >
+                 {% for i in  data['view'] %}
+                 <option value="{{i['courier_id']}}">{{i['cour_name']}}</option>
+                 {% endfor %}
+               </select>
+             </td>
+           </tr>
+           <tr>
+             <td align="center" colspan="2"><input type="submit" class="btn btn-success" name="assign"></td>
+           </tr>
+         </table>
+       </form>
+    
+    </div>
+
+
+
+    </center>
+
+
+{% include 'footer.html' %}

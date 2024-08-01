@@ -1,0 +1,75 @@
+{% include 'customer_header.html' %}
+
+<!-- slider section -->
+  <section class="slider_section">
+      <div class="slider_container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1 align='center'>
+SEND COMPLAINT                      </h1>
+         
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+          
+        </div>
+      </div>
+    </section>
+	
+
+ <center>
+        
+        <div class="divmain">
+            <div style="width: 20px; padding-top: 20px; display: flex; justify-content: center; align-items: center;">
+
+<form method="post">
+ <div style="padding-top: 20px;">
+	<table class="table">
+		<tr>
+			<th>Complaint</th>
+			<td><input type="text" class="form_control" required="" name="complaint"></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><input type="submit" class="btn btn-success" name="submitbutton"></td>
+		</tr>
+		</div>
+	</table>
+</form>
+</div>
+</div>
+<br><br><br><br>
+<table  class="table" style="color: aliceblue;background: rgba(44, 43, 43, 0.750);">
+	<tr>
+		<th>Sl.No</th>
+		<th>Complaint</th>
+		<th>Date</th>
+		<th>Reply</th>
+	</tr>
+	{% for i in data['view'] %}
+	<tr>
+		<td>{{loop.index}}</td>
+		<td>{{i['complaint']}}</td>
+		<td>{{i['complaint_date']}}</td>
+		<td>{{i['reply']}}</td>
+	</tr>
+	{% endfor %}
+</table>
+</center>
+      </div>
+    </section><!-- End About Section -->
+{% include 'footer.html' %}

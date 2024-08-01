@@ -1,0 +1,212 @@
+{% include 'staff_header.html' %}
+   <!-- slider section -->
+  <section class="slider_section">
+      <div class="slider_container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1 align='center'>
+                      Customer Report
+                      </h1>
+         
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- end slider section -->
+<!DOCTYPE html>
+<html>
+<head>
+<title>tsánta Store</title>
+<!-- for-mobile-apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Best Store Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //for-mobile-apps -->
+<link href="/static/assets/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+<link href="/static/assets/css/style.css" rel="stylesheet" type="text/css" media="all" />
+<!-- js -->
+<script src="/static/assets/js/jquery.min.js"></script>
+<!-- //js -->
+<!-- cart -->
+<script src="/static/assets/js/simpleCart.min.js"></script>
+<!-- cart -->
+<!-- for bootstrap working -->
+<script type="text/javascript" src="/static/assets/js/bootstrap-3.1.1.min.js"></script>
+<!-- //for bootstrap working -->
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<link href='//fonts.googleapis.com/css?family=Lato:400,100,100italic,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+<!-- timer -->
+<link rel="stylesheet" href="/static/assets/css/jquery.countdown.css" />
+<!-- //timer -->
+<!-- animation-effect -->
+<link href="/static/assets/css/animate.min.css" rel="stylesheet"> 
+<script src="/static/assets/js/wow.min.js"></script>
+<script>
+ new WOW().init();
+</script>
+<!-- //animation-effect -->
+</head>
+	
+<body>
+
+<style type="text/css">
+	th,td{
+		padding:30px;
+	}
+
+</style>
+
+<center>
+ <div id="printsec">
+  <center>
+    <link rel="stylesheet" href="/static/assets/assets/css/style-starter.css">
+    <font style="font-family:times new roman">
+        <!-- <br><br> -->
+        
+  
+        <p>
+            <!-- 0926k 4th block, 
+            Attingal, 
+            Trivandrum ,
+                      <br><br> -->
+                 
+                </p> <hr>
+      <!--  Section Title -->
+   <div class="container section-title" data-aos="fade-up">
+    <h2 class="table table-striped" style="color: black;width: 1000px;">CUSTOMER REPORT</h2>
+  </div><!-- End Section Title -->
+    <!-- <h1>View Sales</h1> -->  
+<table  class="table table-secondary" style="width: 1200px;color: black !important;background:white !important;opacity: 0.85;">
+<tr style="background-color: rgb(255, 255, 255);">
+<!--       
+<br><h1>Customer Details</h1><br><br> -->
+<h2><a class="btn btn-success" id="print" onclick="print()" >print</a></h2>
+<form method="post">
+ <table class="table table-secondary">
+        <tr style="background-color: rgb(43, 46, 27);">
+      <th> Name</th>
+          <th>House name</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th>Username</th>
+    
+                 <!-- <th style="background: rgb(185, 198, 130) !important;border: 1px solid rgb(33, 34, 35) !important;">Product Name</th>  
+            
+            <th style="background: rgb(185, 198, 130) !important;border: 1px solid rgb(33, 34, 35) !important;">Product Image</th>
+			<th style="background: rgb(185, 198, 130) !important;border: 1px solid rgb(33, 34, 35) !important;">Qutantity</th>
+            <th style="background: rgb(185, 198, 130) !important;border: 1px solid rgb(33, 34, 35) !important;">Total</th> -->
+            
+      </tr>
+      {% for r in data['view'] %} 
+      <tr>
+        
+        <td>{{r['NAME']}}</td>
+        <td>{{r['c_housename']}}</td>
+        <td>{{r['address']}}</td>
+        <td>{{r['c_phone']}}</td>
+        <td>{{r['c_email']}}</td>
+        <td>{{r['username']}}</td>
+      </tr>
+      {%endfor%}
+     <!-- <th colspan="9" align="right" style="font-size: 25px; background: rgb(185, 198, 130) !important;border: 1px solid rgb(33, 34, 35) !important;" >Grand Total</th>
+	 
+	 
+	 <td style="font-size: 15px ;background: rgb(185, 198, 130) !important;border: 1px solid rgb(33, 34, 35) !important;">{{data['sta']}}</td> -->
+	 
+	 
+    </table>
+  </form>
+  </div>
+</center>
+
+
+<style type="text/css">
+  @media print{
+    body,body *{
+      visibility: hidden;
+    }
+    #printsec,#printsec *{
+      visibility: visible !important;
+      
+    
+    }
+    #trp{
+      background: red !important;
+    }
+    #print{
+      display: none;
+    }
+
+    #formsec{
+      display: none;
+    }
+
+    #header{
+      display: none !important;
+    }
+  }
+/* Style the outer table */
+        .table-secondary {
+            width: 1200px;
+            color: black !important;
+            background: white !important;
+            opacity: 0.85;
+        }
+
+        /* Style the header row */
+        tr[style="background-color: rgb(207, 227, 137);"] {
+            background-color: rgb(207, 227, 137);
+        }
+
+        /* Style the "Print" button */
+        #print {
+            background-color: rgb(40, 161, 167); /* Green background color */
+            color: #fff; /* White text color */
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Style the inner table */
+        .table-striped {
+            width: 90%;
+            border: 1px solid black;
+        }
+
+        /* Style table headers */
+        th {
+            background: rgb(251, 251, 249) !important;
+            border: 1px solid rgb(33, 34, 35) !important;
+        }
+
+        /* Style table cells */
+        td {
+            background: rgb(255, 255, 255) !important;
+            border: 1px solid rgb(33, 34, 35) !important;
+        }
+    </style>
+
+    {% include 'footer.html' %}

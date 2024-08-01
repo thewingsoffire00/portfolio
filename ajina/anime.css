@@ -1,0 +1,48 @@
+.div{
+    height: 300px;
+    width:300px;
+    background-color: rgb(183, 213, 153);
+    animation-name: move;
+    animation-duration: 5s;
+ position: relative;
+ margin: 10px;
+}
+.div1
+{
+    height: 400px;
+    width: 400px;
+    background-color: crimson;
+    animation-name: move;
+    animation-duration: 5s;
+    animation-iteration-count: 3;
+    animation-delay: 3s;
+    animation-direction:reverse ;
+}
+@keyframes move {
+    0%{
+        left: 0px;
+        border-radius: 0px;
+    }
+    25%{
+        left: 300px;
+        top: 0px;
+        /* border-radius: 30px; */
+    }
+    50%{
+        left:300px;
+        top:30px;
+
+    }
+    75%{
+        left:0px;
+        top:300px;
+        background-color: brown;
+    }
+    100%{
+        left: 0px;
+        top:0px;
+    }
+
+
+    
+}

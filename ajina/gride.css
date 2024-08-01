@@ -1,0 +1,61 @@
+.container
+{
+    display: grid;
+    /* grid-template-columns: auto auto auto; */
+    grid-template-columns: 300px max-content min-content;
+    grid-template-rows: auto 200px 300px ;
+    row-gap: 5px;
+    column-gap: 5px;
+}
+.item
+{
+    padding: 20px;
+    color: antiquewhite;
+    background: rgb(203, 212, 210);
+    font-size: 30px;
+    border: 2px solid;
+}
+.item1
+{
+background: rgb(125, 116, 135);
+}
+.item2
+{
+    background: rgb(26, 35, 8);
+}
+.item3
+{
+    background: rgb(195, 185, 129);
+}
+.big
+{
+grid-row-start:3;
+grid-row-end: 1;
+grid-column-start:3;
+grid-column-end:1;
+}
+p::first-line
+{
+    font-size: 30px;
+    text-shadow: rebeccapurple;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: magenta;
+}
+p::first-letter
+{
+    font-size: 50px;
+    color: aquamarine;
+}
+h2::before
+{
+ content: "i love u";
+ color: red;
+ text-transform:capitalize ;
+ letter-spacing: 5px;
+}
+h2:hover:after
+{
+    /* content:url(src/f1.jpeg); */
+    content: "god luck";
+
+}

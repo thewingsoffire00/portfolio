@@ -1,0 +1,164 @@
+{% include 'staff_header.html' %}
+<center>
+<!-- slider section -->
+  <section class="slider_section">
+      <div class="slider_container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1 align='center'>
+                      Manage Subcategory
+                      </h1>
+         
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- end slider section -->
+       
+
+    <form action="" method="post">
+
+<!--         <div>
+            <div>
+                <label for="">Select Category: </label>
+                <select required name="catid" id="">
+                    <option value="{% if data['raw'] %}{{data['raw'][0]['cat_id']}}{% endif %}">{% if data['raw'] %}{{data['raw'][0]['cat_name']}}{% else %} Select  {% endif %}</option>
+                    {% for row in data['cat'] %}
+                    <option value="{{ row['cat_id'] }}">{{ row['cat_name'] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        
+    </div> -->
+<!-- <div style="padding-top: 20px; width: 400px;">
+    <label for="cat">Category:</label>
+    <select name="cat" class="form-control" required>
+        {% for i in data['view'] %}
+        <option value="{{i['cat_id']}}" {% if data['raw'] and data['raw'][0]['cat_id'] == i['cat_id'] %}selected{% endif %}>{{i['cat_name']}}</option>
+        {% endfor %}
+    </select>
+</div> -->
+<div style="padding-top: 20px; width: 400px;">
+    <label for="cat">Category:</label>
+    <select name="cat" class="form-control" required>
+        {% for i in data['view'] %}
+        <option value="{{i['cat_id']}}" {% if data['raw'] and data['raw'][0]['cat_id'] == i['cat_id'] %}selected{% endif %}>{{i['cat_name']}}</option>
+        {% endfor %}
+    </select>
+</div>
+
+        <div style="padding-top: 20px;width: 400px;">
+                
+            <input type="text" class="form-control mt-3" required placeholder="Subcategory  Name" name="name" id="" value="{% if data['raw'] %}{{data['raw'][0]['subcat_name']}}{% endif %}">
+        </div>
+        <div style="width: 400px;">
+                
+            <input type="text" class="form-control mt-3" required placeholder="Subcategory description" name="desc" id="" value="{% if data['raw'] %}{{data['raw'][0]['subcat_desc']}}{% endif %}">
+        </div>
+        
+        
+         
+         <div>
+            <input type="submit" class="btn btn-success mt-3" {% if data['raw'] %} name="update" value="Update" {% else %} value="submit" name="submit" {% endif %}>
+         </div>
+
+    </form>
+
+
+    <h5>View Available Subcategory</h5>
+    <table class="table table-striped">
+        <tr>
+            <th>index</th>
+            <th>Subcategory</th>
+            <th>Description</th>
+            <th>Status</th>
+            
+        </tr>
+        {% for row in data['res'] %}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ row['subcat_name'] }}</td>
+            <td>{{ row['subcat_desc'] }}</td>
+            <td>{{ row['status'] }}</td>
+           
+            <td><a href="?action=update&subid={{ row['subcat_id'] }}" class="btn btn-warning" class="btn btn-warning btn-sm">Update</a></td>
+            <td><a onclick="return confirm('Are You Sure!')" href="?action=active&subid={{ row['subcat_id'] }}" class="btn btn-success btn-sm">Active</a></td>
+            <td><a onclick="return confirm('Are You Sure!')" href="?action=inactive&subid={{ row['subcat_id'] }}" class="btn btn-danger btn-sm">Inactive</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+</center>
+
+<script src="
+https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js">
+    </script>
+<script>
+    $(function() {
+        $("input[name='fname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        $("input[name='lname']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+        // $("input[name='dob']").on('input', function(e) {
+        //     $(this).val($(this).val().replace(/[^0-9/]/g, ''));
+
+        // });
+        
+        $("input[name='phone']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+        $("input[name='pin']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9]/g, ''));
+            
+        });
+        $("input[name='email']").on('input', function(e) {
+              var re = /([A-Z0-9a-z_-][^@])+?@[^$#<>?]+?\.[\w]{1,}/.test(this.value);
+                if(!re) {
+                    $('#eerror').show();
+                } else {
+                    $('#eerror').hide();
+                }
+
+        });
+        $("input[name='address']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z0-9()/. ]/g, ''));
+
+        });
+        $("input[name='place']").on('input', function(e) {
+            $(this).val($(this).val().replace(/[^A-Za-z ]/g, ''));
+
+        });
+            
+        $("input[name='pwd']").on('input', function(e) {
+        	$(this).val($(this).val().replace(/[^0-9A-Za-z@/. ]/g, ''));
+            
+        });
+    });
+
+
+</script>
+
+{% include 'footer.html' %}

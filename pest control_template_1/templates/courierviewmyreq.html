@@ -1,0 +1,130 @@
+{% include 'courier_header.html' %}
+
+<center>
+          <!-- slider section -->
+  <section class="slider_section">
+      <div class="slider_container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1 align='center'>
+                      My Couriers 
+                      </h1>
+         
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    <!--/ End Slider Area -->
+ 
+      <br>
+      <br>
+  
+
+    <div>
+        <span style="color: rgb(255, 85, 85);">Note: products under same cart are delivered together.</span>
+    </div>
+ 
+  <div style="background: rgba(0, 0, 0,.5);width: 1400px;border-radius: 10px;">
+
+{% if data['view'] %}
+            <table class="table table-striped" style="color: rgb(255, 255, 255);width: 600px;">
+            <tr>
+                <!-- <th>Customer Name</th> -->
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <!-- <th>Order Date</th> -->
+                <!-- <th>Order Status</th> -->
+
+            </tr>
+            {% for row in data['view'] %}
+            <tr>
+                <!-- <td>{{ row['c_fname'] }}{{row['c_lname']}}</td> -->
+                <td><img src="/{{row['product_img']}}" alt="" style="width: 100px; height: 100px;"><br>Product Name:{{ row['product_name'] }}<br> {{row['product_desc']}}</td>
+                <td>{{ row['total_price'] }}</td>
+                <td>{{ row['quantity'] }}</td>
+                <td>{{ row['total_price'] }}</td>
+                <!-- <td>{{ row['date'] }}</td> -->
+                <!-- <td>{{ row['ostatus'] }}</td> -->
+                <!-- <td><a href="adminviewdetails?omid={{row['order_master_id']}}" class="btn btn-success">View Details</a></td>
+                <td><a href="viewpayment?omid={{row['order_master_id']}}" class="btn btn-success">View Payment</a></td> -->
+            </tr>
+            {% endfor %}
+        </table>
+{% else %}
+            <table class="table table-striped" style="color: rgb(255, 255, 255);width: 1400px;">
+
+
+        <tr>
+            <th>Name</th>
+
+            <th>Street</th>
+            <!-- <th>City</th> -->
+            <th>District</th>
+            <th>House Name</th>
+            <th>Pincode</th>
+            <th>Phone</th>
+            <th>Product Details</th>
+            <th>Status</th>
+            <th></th>
+            <!-- <th>Gender</th> -->
+<!--             <th>Product</th>
+            
+            <th>Price</th> -->
+            <!-- <th>Status</th> -->
+        </tr>
+        {% for row in data['res'] %}
+        <tr>
+            <td>{{ row['c_fname'] }}{{ row['c_lname'] }}</td>
+            <td>{{ row['c_street'] }}</td>
+            <!-- <td>{{ row['c_city'] }}</td> -->
+            <td>{{ row['c_district'] }}</td>
+            <td>{{row['c_housename']}}</td>
+            <td>{{ row['c_pincode'] }}</td>
+            <td>{{ row['c_phone'] }}</td>
+            <td><a class="btn btn-success"  href="?action=view_product&omid={{ row['order_master_id'] }}&did={{ row['delivery_id'] }}">Product Details</a></td>
+            <!-- <td>{{ row['c_gender'] }}</td> -->
+<!--             <td>{{ row['product_name'] }}</td>
+            <td>{{ row['quantity'] }}</td>
+            <td>{{ row['total_price'] }}</td> -->
+            <!-- <td>{{ row['ostatus'] }}</td> -->
+            {% if row['ostatus'] == "Delivery Completed" %}
+            <td>{{ row['ostatus'] }}</td>
+            {% elif row['ostatus'] == "Pickuped" and row['status'] != "Unreachable" %}
+            <td><a class="btn btn-success" onclick="return confirm('Are you Sure?')" href="?action=unreach&omid={{ row['order_master_id'] }}&did={{ row['delivery_id'] }}">Unreachable</a></td>
+            <td><a class="btn btn-success" onclick="return confirm('Are you Sure?')" href="?action=accept&omid={{ row['order_master_id'] }}&did={{ row['delivery_id'] }}">Deliver Now</a></td>
+            {% elif row['ostatus'] == "assigned" %}
+            <td><a class="btn btn-success" onclick="return confirm('Are you Sure?')" href="?action=pickup&omid={{ row['order_master_id'] }}&did={{ row['delivery_id'] }}">Pick Up</a></td>
+
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+{% endif %}
+
+
+    </div>
+    
+
+</center>
+
+{% include 'footer.html' %}

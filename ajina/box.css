@@ -1,0 +1,49 @@
+.box
+{
+    width: 200px;
+    height: 200px;
+    position:relative;
+}
+.red
+{
+    background-color: red;
+    left: 250px;
+    bottom: 240px;
+    z-index: 2;
+}
+.blue
+{
+    background-color:blue;
+    left: 157px;
+    bottom: 113px;
+    z-index: 4;
+}
+.green
+{
+    background-color: rgb(132, 44, 61);
+    left: 100px;
+    bottom:0;
+    z-index:3 ;
+
+}
+h1{
+    background-color: darkmagenta;
+    color: brown;
+}
+h1:hover 
+{
+    color: chartreuse;
+    background-color: aquamarine;
+}
+
+h2:active
+{
+    color:blue;
+    font-style: italic;
+}
+input:focus
+{
+    border: 5px solid greenyellow;
+    background-color: brown;
+    border-radius:5px ;
+}

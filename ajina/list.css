@@ -1,0 +1,45 @@
+ul{
+    background-color: rgb(212, 193, 212);
+    list-style-position: inside;
+}
+ol{
+    background-color: rgb(185, 195, 189);
+    list-style-position: inside;
+    border:solid 2px ;
+}
+li{
+    border: 2px solid blueviolet;
+}
+table,tr,th,td
+{
+    border: 2px solid rgb(171, 43, 43);
+    border-collapse: collapse;
+}
+table
+{
+    width:100%;
+}
+th{
+    height: 25px;
+    background-color: rgb(58, 92, 92) ;
+    vertical-align:center ;
+    color: rgb(81, 54, 14);
+}
+td{
+    height: 25px;
+    /* background-color: rgb(170, 235, 235) ; */
+    vertical-align:center ;
+    color: rgb(46, 5, 5);
+    padding: 3px;
+    text-align: center;
+}
+tr:hover
+{
+    background-color: rgb(177, 205, 205);
+}
+div{
+    background-color: violet;
+    height: 300px;
+    width: 500px;
+    overflow: scroll;
+}

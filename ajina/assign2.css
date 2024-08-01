@@ -1,0 +1,64 @@
+body
+{
+background-image:url(./src/car.jpg) ;
+background-repeat: no-repeat;
+background-size:cover;
+justify-items: center;
+border-left: 40px;
+}
+form
+{
+ right: 10%;
+ width:95%;
+border: 2px solid white;
+text-align: center;
+background-image: url(./src/car.jpg);
+background-repeat: no-repeat;
+background-color: white;
+background-size: 500px;
+}
+.f1
+{
+
+ width:350px;
+ height: 30px;
+ padding: 5px;
+ font-size: 17px;
+  color:rgb(92, 85, 85);
+background-color: whitesmoke;
+border-color: white;
+ 
+  }
+ 
+.button
+{
+    background-color: rgb(33, 207, 33);
+    width:350px;
+    height: 30px;
+    border-color: white;
+  
+
+}
+.f2
+{
+    width: 350px;
+    height: 100px;
+    background-color:whitesmoke;
+    font-size: 18px;
+    color:rgb(92, 85, 85);
+    border-color: white
+   
+
+}
+h1{
+    text-decoration:non;
+    position: relative;
+    border-radius: 2px;
+    color: darkgreen;
+    margin: 0 6px;
+    z-index: 1;
+    font-weight: 500;
+    padding: 20px;
+    
+  
+}

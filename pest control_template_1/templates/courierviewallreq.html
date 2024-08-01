@@ -1,0 +1,80 @@
+{% include 'courier_header.html' %}
+
+
+<center>
+          <!-- slider section -->
+  <section class="slider_section">
+      <div class="slider_container">
+        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-7">
+                    <div class="detail-box">
+                      <h1 align='center'>
+                      Pending Couriers 
+                      </h1>
+         
+                    </div>
+                  </div>
+                  <div class="col-md-5 ">
+                    <div class="img-box">
+                   
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- end slider section -->
+ 
+      
+<div style="background: rgba(0, 0, 0,.5);width: 1400px;border-radius: 10px;">
+            <table class="table table-striped" style="color: rgb(255, 255, 255);width: 1400px;">
+
+        <tr>
+
+            <th>Name</th>
+
+           
+            <th>City</th>
+            <th>District</th>
+            <th>House name</th>
+          
+            <th>Pincode</th>
+            <th>Phone</th>
+            <th>Gender</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+        </tr>
+        {% for row in data['res'] %}
+        <tr>
+            <td>{{ row['c_fname'] }}{{ row['c_lname'] }}</td>
+            <td>{{row['c_street']}}</td>
+            <td>{{ row['c_district'] }}</td>
+            <td>{{ row['c_housename'] }}</td>
+            <td>{{ row['c_pincode'] }}</td>
+            <td>{{ row['c_phone'] }}</td>
+            <td>{{ row['c_gender'] }}</td>
+            <td>{{ row['product_name'] }}</td>
+            <td>{{ row['quantity'] }}</td>
+            <td>{{ row['total_price'] }}</td>
+            <td><a class="btn btn-success" onclick="return confirm('Are you Sure?')" href="?action=accept&omid={{ row['order_master_id'] }}">Accept Delivery</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    </div>
+   
+   
+</center>
+
+{% include 'footer.html' %}
